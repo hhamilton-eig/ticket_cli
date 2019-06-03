@@ -73,23 +73,18 @@ def date_check(path):
 checkFileExistByException(file_path)
 date_check(file_path)
 
+with open(file_path,'r') as input_file:
+    for line in input_file:
+        if re.match(str(nowdate)+'.*',line):
+            total = int(re.search(': (\d+)',line).group(1))
+
 # Handles appending tickets + timestamps to list, increments total for the day
 
-if (sys.argv[1] == "add") or (sys.argv[1] == "--add") or (sys.argv[1] == "-a") or (sys.argv[1] == "a"):
-    if (sys.argv[3] == "note") or (sys.argv[3] == "--note") or (sys.argv[3] == "-n") or (sys.argv[3] == "n"):
-        ticky_list = open(file_path,"a+")
-        ticky_list.write(sys.argv[2] + " " + str(nowtime) + sys.argv[4] + "\n" )
-        tick_list_up()
-        print("Adding " + str(sys.argv[2]) + " to ticket list. Total for today is ")
-        ticky_list.close()
-        exit
-    else:
-        ticky_list = open(file_path,"a+")
-        ticky_list.write(sys.argv[2] + " " + str(nowtime) + "\n" )
-        tick_list_up()
-        print("Adding " + str(sys.argv[2]) + " to ticket list. Total for today is ")
-        ticky_list.close()
-
-
-
+if (sys.argv[1] == "--add") or (sys.argv[1] == "-a"):
+    tick_list_up()
+    ticky_list = open(file_path,"a+")
+    ticky_list.write(sys.argv[2] + " " + str(nowtime) + "\n" )
+    total += 1
+    print("Adding " + str(sys.argv[2]) + " to ticket list. Total for today is " + str(total))
+    ticky_list.close()
 
