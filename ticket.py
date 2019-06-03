@@ -92,7 +92,7 @@ if (sys.argv[1] == "--add") or (sys.argv[1] == "-a"):
     # def __init__(self, option_strings, dest, nargs=None, **kwargs):
     #  if nargs is not None:
         #  raise ValueError("nargs not allowed")
-        #  super(FooAction, self).__init__(option_strings, dest, **kwargs)
+        #  super(AddTicket, self).__init__(option_strings, dest, **kwargs)
 #   def __call__(self, parser, namespace, values, option_string=None):
 #
 parser = argparse.ArgumentParser(prog='ticket-cli',description='tracks tickets in ~/ticket_list.txt')
@@ -101,5 +101,4 @@ parser.add_argument('ticket_number', metavar='<ticket_number>', type=int,
 parser.add_argument('--note','-n',# action=NotateTicket,
                     help='notates a ticket')
 args = parser.parse_args()
-args
 
