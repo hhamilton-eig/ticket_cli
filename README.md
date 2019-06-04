@@ -4,7 +4,7 @@
 
 Usage:
 ```
-tkt.py [-h] [--note NOTE] <ticket_number>
+tkt.py [-h] [--note NOTE] <ticket_number> [--note NOTE]
 
 positional arguments:
   <ticket_number>       appends <ticket number> and timestamp to
